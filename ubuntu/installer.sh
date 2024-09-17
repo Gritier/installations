@@ -41,6 +41,13 @@ rm nodesource_setup.sh
 sudo apt-get install -y nodejs
 sudo apt install ruby rustc cargo python3.12 python3.12-venv python3-pip
 #Install Lua
+curl -L -R -O https://www.lua.org/ftp/lua-5.4.7.tar.gz
+tar zxf lua-5.4.7.tar.gz
+cd lua-5.4.7
+make all test
+cd ..
+rm -rf lua-5.4.7
+rm lua-5.4.7.tar.gz
 wget https://luarocks.org/releases/luarocks-3.11.1.tar.gz
 tar zxpf luarocks-3.11.1.tar.gz
 cd luarocks-3.11.1
