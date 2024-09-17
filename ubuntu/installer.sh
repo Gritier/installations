@@ -1,7 +1,8 @@
 #Update everything
 sudo apt-get update
 #Install terminal related packages
-sudo apt install stow starship zsh tmux
+sudo apt install stow zsh tmux
+curl -sS https://starship.rs/install.sh | sh
 #Clone my repo
 git clone https://github.com/Gritier/dotfiles.git
 #Install oh-my-zsh
@@ -23,7 +24,7 @@ stow oh-my-zsh
 stow tmux
 cd ..
 #Install NeoVIM
-sudo apt install ninja-build gettext cmake unzip curl build-essentials
+sudo apt install ninja-build gettext cmake unzip curl build-essential
 git clone https://github.com/neovim/neovim.git
 cd neovim
 make CMAKE_BUILD_TYPE=RelWithDebInfo
@@ -36,6 +37,7 @@ cd ..
 #Install other dev tools
 curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh
 sudo -E bash nodesource_setup.sh
+rm nodesource_setup.sh
 sudo apt-get install -y nodejs
-sudo apt ruby rust python
-python -m ensurepip --upgrade
+sudo apt install ruby rustc python3.12 python3.12-venv
+python3.12 -m ensurepip --upgrade
