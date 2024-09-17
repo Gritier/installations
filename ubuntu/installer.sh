@@ -39,5 +39,13 @@ curl -fsSL https://deb.nodesource.com/setup_22.x -o nodesource_setup.sh
 sudo -E bash nodesource_setup.sh
 rm nodesource_setup.sh
 sudo apt-get install -y nodejs
-sudo apt install ruby rustc python3.12 python3.12-venv
-python3.12 -m ensurepip --upgrade
+sudo apt install ruby rustc cargo python3.12 python3.12-venv python3-pip
+#Install Lua
+wget https://luarocks.org/releases/luarocks-3.11.1.tar.gz
+tar zxpf luarocks-3.11.1.tar.gz
+cd luarocks-3.11.1
+./configure && make && sudo make install
+sudo luarocks install luasocket
+cd ..
+rm -rf luarocks-3.11.1
+rm luarocks-3.11.1.tar.gz
